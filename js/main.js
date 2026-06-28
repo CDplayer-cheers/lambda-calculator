@@ -364,6 +364,7 @@ function listRun(list) {
     } else {
         let lambdaEq = new LambdaEq(list);
         let count = 0;
+        console.log(runLines);
         while (true) {
             console.log(lambdaEq.toString());
             let reducted = lambdaEq.reduction();
@@ -378,7 +379,7 @@ function listRun(list) {
                 if (reductString.length > 100) {
                     reductString = reductString.slice(0, 100) + "..."
                 }
-                error(`too many reduction: '${reductString}'`, "processing"); return;
+                error(`too many reduction '${reductString}'`, "processing"); return;
             }
         }
 
@@ -424,6 +425,7 @@ function reset() {
 }
 
 runButton.addEventListener("click", () => {
+    console.clear();
     reset();
     run(programArea.value);
 });
